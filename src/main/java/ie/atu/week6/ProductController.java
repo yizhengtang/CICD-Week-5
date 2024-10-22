@@ -1,9 +1,6 @@
 package ie.atu.week6;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +15,16 @@ public class ProductController {
     }
 
     private List<Product> list = new ArrayList<>();
-    //Creating a class which is interested in request and responses. Separation of Concern
+    //Creating a class which is interested in request and responses. Separation of Concern.
+    @GetMapping
+    public List<Product> getProduct()
+    {
+        list = myService.getProduct();
+        return list;
+    }
 
     @PostMapping
-    public List<Product> newProduct(@RequestBody Product product)
+    public  List<Product> newProduct(@RequestBody Product product)
     {
         //Send it to business logic
         list = myService.addProduct(product);
