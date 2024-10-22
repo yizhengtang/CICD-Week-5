@@ -2,6 +2,7 @@ package ie.atu.week6;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
-    @Min(value = 1, message = "Product ID must be greater than 0!!!")
+    @Positive(message = "Product ID must be greater than 0!!!")
     private int id;
     @NotBlank(message = "Product Name cannot be blank!!!")
     private String name;
