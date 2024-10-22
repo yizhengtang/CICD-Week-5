@@ -1,6 +1,7 @@
 package ie.atu.week6;
 
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,6 +30,20 @@ public class ProductController {
     {
         //Send it to business logic
         list = myService.addProduct(product);
+        return list;
+    }
+
+    @PutMapping("/{id}")
+    public List<Product> updateProduct (@PathVariable int id, @RequestBody Product product)
+    {
+        list = myService.updateProduct(id, product);
+        return list;
+    }
+
+    @DeleteMapping ("/{id}")
+    public List<Product> deleteProduct (@PathVariable int id)
+    {
+        list = myService.deleteProduct(id);
         return list;
     }
 }
