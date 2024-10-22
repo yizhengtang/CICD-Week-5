@@ -9,12 +9,16 @@ import java.util.List;
 public class ProductService {
 
     private List<Product> myList = new ArrayList<>();
+    //Do Business stuff like retrieving details from DB, or generating files like PDF etc.
+
+    //Handle Post requests
     public List<Product> addProduct (Product product)
     {
-        //Do Business stuff like retrieving details from DB, or generating files like PDF etc.
         myList.add(product);
         return myList;
     }
+
+    //Handle Get Requests
     public List<Product> getAllProducts ()
     {
         return myList;
