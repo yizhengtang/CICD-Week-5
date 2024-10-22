@@ -17,9 +17,9 @@ public class ProductController {
     private List<Product> list = new ArrayList<>();
     //Creating a class which is interested in request and responses. Separation of Concern.
     @GetMapping
-    public List<Product> getProduct()
+    public List<Product> getAllProducts()
     {
-        list = myService.getProduct();
+        list = myService.getAllProducts();
         return list;
     }
 
