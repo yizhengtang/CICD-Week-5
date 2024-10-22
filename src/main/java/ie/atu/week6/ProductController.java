@@ -1,5 +1,6 @@
 package ie.atu.week6;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public  List<Product> newProduct(@RequestBody Product product)
+    public  List<Product> newProduct(@Valid @RequestBody Product product)
     {
         //Send it to business logic
         list = myService.addProduct(product);
